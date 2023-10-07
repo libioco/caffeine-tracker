@@ -18,18 +18,18 @@ const Navbar = () => {
 					alt="Profile Button"
 				/>
 			</Link>
-			<a href="#data">
+			<Link to="/data">
 				<img
 					src="https://media.discordapp.net/attachments/1156773996558307430/1160087538543886437/socialsciences_statistics.png?ex=653362b6&is=6520edb6&hm=e426fb693270ba5e18ad988ce9d58f672839f7e64470af3f428f048eb038af61&="
 					alt="Data Button"
 				/>
-			</a>
-			<a href="#setting">
+			</Link>
+			<Link to="/settings">
 				<img
 					src="https://media.discordapp.net/attachments/1156773996558307430/1160088183107768411/gear_brown-removebg-preview.png?ex=65336350&is=6520ee50&hm=15ba93de4da5935a76b9e591a7de34d0afab400eba1699415ce25d4964bd1171&="
 					alt="Setting Button"
 				/>
-			</a>
+			</Link>
 		</div>
 	);
 };

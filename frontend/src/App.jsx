@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import Data from "./pages/Data";
+import Settings from "./pages/Settings";
 
 import "./styles.css";
 import Profile from "./pages/Profile";
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
 			{
 				path: "/profile",
 				element: <Profile />,
+			},
+			{
+				path: "/data",
+				element: <Data />,
+			},
+			{
+				path: "/settings",
+				element: <Settings />,
 			},
 		],
 	},
