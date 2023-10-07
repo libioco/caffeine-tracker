@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import "../styles.css";
 
 const Navbar = () => {
+	const doLogout = (event) => {
+		event.preventDefault();
+		localStorage.removeItem("user_data");
+		window.location.href = "/login";
+	};
+
 	return (
 		<div class="topnav">
 			<Link to="/">
@@ -30,6 +36,7 @@ const Navbar = () => {
 					alt="Setting Button"
 				/>
 			</Link>
+			<button onClick={doLogout}>Log Out</button>
 		</div>
 	);
 };
