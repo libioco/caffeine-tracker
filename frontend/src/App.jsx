@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 
-import "./styles.scss";
+import "./styles.css";
 import Profile from "./pages/Profile";
 
 const Layout = () => {
