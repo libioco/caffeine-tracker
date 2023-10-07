@@ -8,7 +8,7 @@ const Login = () => {
 
 	const doLogin = async (event) => {
 		event.preventDefault();
-		var obj = { login: loginUser.value, password: loginPass.value };
+		var obj = { username: loginUser.value, password: loginPass.value };
 		var js = JSON.stringify(obj);
 
 		try {
@@ -23,7 +23,13 @@ const Login = () => {
 			if (res._id <= 0) {
 				setMessage("User/Password combination incorrect");
 			} else {
-				var user = { firstName: res.FirstName, lastName: res.LastName, id: res.id };
+				var user = {
+					firstName: res.firstName,
+					lastName: res.lastName,
+					id: res.id,
+					age: res.age,
+					weight: res.weight,
+				};
 				localStorage.setItem("user_data", JSON.stringify(user));
 				setMessage("");
 				window.location.href = "/";
