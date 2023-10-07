@@ -25,4 +25,75 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.listen(4000); // start Node + Express server on port 4000
+app.listen(3000); // start Node + Express server on port 3000
+
+app.post("/api/login", async (req, res, next) => {
+	// incoming: login, password
+	// outgoing: id, firstName, lastName, error
+	var error = "";
+	const { username, password } = req.body;
+	const db = client.db("CaffeineDB");
+	const results = await db
+		.collection("Users")
+		.find({ Username: username, Password: password })
+		.toArray();
+	var id = -1;
+	var fn = "";
+	var ln = "";
+	if (results.length > 0) {
+		id = results[0]._id;
+		fn = results[0].FirstName;
+		ln = results[0].LastName;
+	}
+	var ret = { id: id, firstName: fn, lastName: ln, error: "" };
+	res.status(200).json(ret);
+});
+
+app.post("/api/register", async (req, res, next) => {
+	// incoming: firstname, lastname , username, password
+	// outgoing: errors
+	const { firstName, lastName, age, weight, username, password } = req.body;
+	const newUser = {
+		FirstName: firstName,
+		LastName: lastName,
+		Age: age,
+		Weight: weight,
+		Username: username,
+		Password: password,
+	};
+
+	var error = "";
+	try {
+		const db = client.db("CaffeineDB");
+		const result = db.collection("Users").insertOne(newUser);
+	} catch (e) {
+		error = e.toString();
+	}
+	var ret = { error: error };
+	res.status(200).json(ret);
+});
+
+app.post("/api/addRecord", async (req, res, next) => {
+	// incoming: userid, caffeine intake (mg), drink name
+	// outgoing: errors
+
+	const { userId, caffeineIntake, drinkName } = req.body;
+
+	const newRecord = {
+		userId: userId,
+		date: new Date(),
+		caffeineIntake: caffeineIntake,
+		drinkName: drinkName,
+	};
+
+	var error = "";
+	try {
+		const db = client.db("CaffeineDB");
+		const result = db.collection("Records").insertOne(newRecord);
+	} catch (e) {
+		error = e.toString();
+	}
+
+	var ret = { error: error };
+	res.status(200).json(ret);
+});
