@@ -7,6 +7,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 
 import "./styles.scss";
+import Profile from "./pages/Profile";
 
 const Layout = () => {
 	return (
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				element: <Home />,
+			},
+			{
+				path: "/profile",
+				element: <Profile />,
 			},
 		],
 	},
