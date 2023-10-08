@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import "./css/login.css";
+
 const Login = () => {
 	var loginUser;
 	var loginPass;
@@ -41,36 +43,27 @@ const Login = () => {
 	};
 
 	return (
-		<div className="login">
-			<div className="container">
-				<h2>Sign In</h2>
-				<form className="form">
-					<input
-						required
-						id="loginUser"
-						type="text"
-						placeholder="Username"
-						ref={(c) => (loginUser = c)}
-					/>
-					<input
-						required
-						id="loginPass"
-						type="password"
-						placeholder="Password"
-						ref={(c) => (loginPass = c)}
-					/>
 
-					<button type="button" id="loginButton" className="buttons" onClick={doLogin}>
-						Continue
-					</button>
-					<span id="loginResult">{message}</span>
-
-					<span className="register-span">
-						Need an account? <Link to="/register">Register here</Link>
-					</span>
-				</form>
-			</div>
-		</div>
+		<div class="login-container">
+      <div class="wrapper">
+        <div class="title"><span>Login Form</span></div>
+        <form action="#">
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Email or Phone" required/>
+          </div>
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required/>
+          </div>
+          <div class="pass"><a href="#">Forgot password?</a></div>
+          <div class="row button">
+            <input type="submit" value="Login"/>
+          </div>
+          <div class="signup-link">Not a member? <a href="#">Signup now!</a></div>
+        </form>
+      </div>
+    </div>
 	);
 };
 
