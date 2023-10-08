@@ -119,6 +119,36 @@ app.post("/api/getWeekRecords", async (req, res, next) => {
 	});
 
 	if (results.length > 0) {
+		var dates = [];
+		var dateIndices = [];
+		var k = 0;
+		var currDate = results[0].date.getDate();
+		dates[0] = currDate;
+		while (dates.length <= 7 && k < results.length) {
+			if (results[k].date.getDate() != currDate) {
+				dateIndices[dateIndices.length] = k;
+				currDate = results[k].date.getDate();
+				dates[dates.length] = currDate;
+			}
+		}
+
+		// initialize
+		for (var l = 0; l < 7; l++)
+			caffeineRecords[l] = 0
+
+		var nextInd = 0
+		for (var n = 0; n < results.length; n++) {
+			if (dateIndices[nextInd] == n) {
+				nextInd++;
+				if (nextInd == dateIndices.length)
+					break;
+			}
+			caffeineRecords[nextInd] += results[n].caffeineIntake;
+		}
+	}
+
+	/*
+	if (results.length > 0) {
 		let j = 0;
 		let prevDate = results[0].date.getDate();
 		caffeineRecords[0] = parseInt(results[0].caffeineIntake);
@@ -131,8 +161,11 @@ app.post("/api/getWeekRecords", async (req, res, next) => {
 			}
 		}
 	}
+	*/
 
-	var ret = { caffeineRecords: caffeineRecords };
+	// from days 0-6, add
+
+	var ret = { caffeineRecords: caffeineRecords, dates: dates };
 	res.status(200).json(ret);
 });
 
