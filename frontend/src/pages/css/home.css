@@ -13,8 +13,15 @@
 
 .left-container {
     background-color: white;
-    opacity: 35%;
+    opacity: 100%;
     flex: 1;
+
+}
+
+.percentIntake{
+    height: 500px;
+    width: 450px;
+    padding: 23px;
 }
 
 .right-container {
