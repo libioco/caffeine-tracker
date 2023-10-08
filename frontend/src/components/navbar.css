@@ -12,6 +12,7 @@ img {
 }
 
 .logo {
+    width: 300px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -21,9 +22,13 @@ img {
     font-weight: 200;
 }
 
-.logo img {
-    height: 150px;
-    width: 150px;
+.logo1 {
+    height: 75px;
+    width: 75px;
+}
+.logo2 {
+    height: 30px;
+    width: 200px;
 }
 
 .links {
