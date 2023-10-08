@@ -43,27 +43,44 @@ const Login = () => {
 	};
 
 	return (
-
 		<div class="login-container">
-      <div class="wrapper">
-        <div class="title"><span>Login Form</span></div>
-        <form action="#">
-          <div class="row">
-            <i class="fas fa-user"></i>
-            <input type="text" placeholder="Email or Phone" required/>
-          </div>
-          <div class="row">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" required/>
-          </div>
-          <div class="pass"><a href="#">Forgot password?</a></div>
-          <div class="row button">
-            <input type="submit" value="Login"/>
-          </div>
-          <div class="signup-link">Not a member? <a href="#">Signup now!</a></div>
-        </form>
-      </div>
-    </div>
+			<div class="wrapper">
+				<div class="title">
+					<span>Sign In</span>
+				</div>
+				<form>
+					<div class="row">
+						<i class="fas fa-user"></i>
+						<input
+							id="loginUser"
+							type="text"
+							placeholder="Username"
+							required
+							ref={(c) => (loginUser = c)}
+						/>
+					</div>
+					<div class="row">
+						<i class="fas fa-lock"></i>
+						<input
+							id="loginPass"
+							type="password"
+							placeholder="Password"
+							required
+							ref={(c) => (loginPass = c)}
+						/>
+					</div>
+					{/* <div class="pass">
+						<a href="#">Forgot password?</a>
+					</div> */}
+					<div class="row button">
+						<input type="submit" value="Login" onClick={doLogin} />
+					</div>
+					<div class="signup-link">
+						Not a member? <Link to="/register">Register Here</Link>
+					</div>
+				</form>
+			</div>
+		</div>
 	);
 };
 

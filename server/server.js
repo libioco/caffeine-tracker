@@ -1,6 +1,5 @@
 // darrenbansil
 // nUVh2BxqZdnnJBru
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -102,3 +101,26 @@ app.post("/api/addRecord", async (req, res, next) => {
 	var ret = { error: error };
 	res.status(200).json(ret);
 });
+
+// app.post("/api/getWeekRecords", async (req, res, next) => {
+// 	var error = "";
+// 	const { userId } = req.body;
+// 	const db = client.db("CaffeineDB");
+
+// 	const results = await db.collection("Records").find({ userId: userId }).toArray();
+
+// 	console.log(results[0].FirstName);
+
+// 	const caffeineRecords = [];
+
+// 	results.sort(function (a, b) {
+// 		return new Date(a.date) - new Date(b.date);
+// 	});
+
+// 	if (results.length > 0) {
+// 		var currDate = results[i].date.getDate();
+// 	}
+
+// 	var ret = { caffeineRecords: caffeineRecords };
+// 	res.status(200).json(ret);
+// });
