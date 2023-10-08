@@ -6,7 +6,7 @@ const MyChart = () => {
 
   useEffect(() => {
     const xValues = [1, 2, 3, 4, 5];
-    const yValues = [100, 140, 200, 140, 130];
+    const yValues = [100, 140, 200, 250, 220];
     const average = [200, 200, 200, 200, 200];
 
     const canvas = chartRef.current;
@@ -62,6 +62,13 @@ const MyChart = () => {
             beginAtZero: true,
             stepSize: 5,
             max: 400,
+            title: {
+              display: true,
+              text: 'Caffeine Intake (mg)',
+              rotation: -90,
+              position: 'center',
+              
+            }
           },
         },
       },
@@ -71,7 +78,7 @@ const MyChart = () => {
     canvas.chart = newChart;
   }, []);
 
-  return <canvas ref={chartRef} style={{ width: '100%', maxWidth: '600px' }} />;
+  return <canvas ref={chartRef} style={{ width: '100%', maxWidth: '480px' }} />;
 };
 
 export default MyChart;
