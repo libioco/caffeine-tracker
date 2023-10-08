@@ -86,12 +86,21 @@ const Home = () => {
 			});
 
 			var res = await response.text().then((data) => {
-				console.log(data)
+				var rci = getRecommendedCaffeineIntake(user.age, user.weight)
+				var src = getImage(JSON.parse(data).caffeineIntake[0], rci)
+
+				document.getElementById('dailyIntake').src = src;
+				
+				var data2 = JSON.parse(data)
+
+				var av = [rci, rci, rci, rci, rci, rci, rci]
+
+				var event = new CustomEvent("loadData", {xValues: data2.dates, yValues: data2.caffeineIntake, average: av});
+
+				document.dispatchEvent(event);
 			});
 
-			if (res.error.length > 0) {
-				alert("ERROR: Cannot fetch records.");
-			}
+
 		} catch (e) {
 			alert(e.toString());
 			return;
