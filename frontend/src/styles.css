@@ -4,6 +4,7 @@ body {
     font-family: Open Sans, sans-serif;
     min-height: 100vh;
     color: white;
+    
 }
 
 .app {
@@ -11,9 +12,10 @@ body {
     justify-content: center;
 }
 
-.container {
+.main-container {
     width: 1024px;
 }
+
   
 /* .topnav {
 overflow: hidden;
