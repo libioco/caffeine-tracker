@@ -1,0 +1,49 @@
+.home {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    width: 1024px;
+    height: 550px;
+    gap: 15px;
+}
+
+.home div {
+    border-radius: 20px;
+}
+
+.left-container {
+    background-color: white;
+    opacity: 35%;
+    flex: 1;
+}
+
+.right-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 35%;
+    background-color: white;
+    flex: 1;
+}
+
+.top input {
+    border: none;
+    border-bottom: solid;
+    font-size: 18px;
+    text-align: center;
+    
+}
+
+.bottom {
+    opacity: 35%;
+    background-color: white;
+    flex: 1;
+}

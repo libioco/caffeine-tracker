@@ -40,12 +40,17 @@ app.post("/api/login", async (req, res, next) => {
 	var id = -1;
 	var fn = "";
 	var ln = "";
+	var age = -1;
+	var weight = -1;
+	console.log(results[0].FirstName);
 	if (results.length > 0) {
 		id = results[0]._id;
 		fn = results[0].FirstName;
 		ln = results[0].LastName;
+		age = results[0].Age;
+		weight = results[0].Weight;
 	}
-	var ret = { id: id, firstName: fn, lastName: ln, error: "" };
+	var ret = { id: id, firstName: fn, lastName: ln, age: age, weight: weight, error: "" };
 	res.status(200).json(ret);
 });
 
