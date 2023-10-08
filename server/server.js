@@ -41,7 +41,7 @@ app.post("/api/login", async (req, res, next) => {
 	var ln = "";
 	var age = -1;
 	var weight = -1;
-	console.log(results[0].FirstName);
+
 	if (results.length > 0) {
 		id = results[0]._id;
 		fn = results[0].FirstName;
@@ -102,25 +102,35 @@ app.post("/api/addRecord", async (req, res, next) => {
 	res.status(200).json(ret);
 });
 
-// app.post("/api/getWeekRecords", async (req, res, next) => {
-// 	var error = "";
-// 	const { userId } = req.body;
-// 	const db = client.db("CaffeineDB");
+app.post("/api/getWeekRecords", async (req, res, next) => {
+	var error = "";
+	const { userId } = req.body;
+	const db = client.db("CaffeineDB");
 
-// 	const results = await db.collection("Records").find({ userId: userId }).toArray();
+	const results = await db.collection("Records").find({ userId: userId }).toArray();
 
-// 	console.log(results[0].FirstName);
+	console.log(results[0].FirstName);
 
-// 	const caffeineRecords = [];
+	var caffeineRecords = [];
 
-// 	results.sort(function (a, b) {
-// 		return new Date(a.date) - new Date(b.date);
-// 	});
+	results.sort(function (a, b) {
+		return new Date(a.date) - new Date(b.date);
+	});
 
-// 	if (results.length > 0) {
-// 		var currDate = results[i].date.getDate();
-// 	}
+	if (results.length > 0) {
+		let j = 0;
+		let prevDate = results[0].date.getDate();
+		caffeineRecords[0] = parseInt(results[0].caffeineIntake);
 
-// 	var ret = { caffeineRecords: caffeineRecords };
-// 	res.status(200).json(ret);
-// });
+		for (let i = 1; i < results.length; i++) {
+			if (results[i].date.getDate() == prevDate) {
+				caffeineRecords[j] += parseInt(results[i].caffeineIntake);
+			} else {
+				caffeineRecords[++j] = parseInt(results[i].caffeineIntake);
+			}
+		}
+	}
+
+	var ret = { caffeineRecords: caffeineRecords };
+	res.status(200).json(ret);
+});
