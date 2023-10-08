@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import CaffeineGraph from "../components/CaffeineGraph";
 import "./css/home.css";
 
+function getRecommendedCaffeineIntake(age, weight) {
+	return (1.0983665 * age) + (-0.0052887 * weight) + 110.6950746
+}
+
 const Home = () => {
 	var user = JSON.parse(localStorage.getItem("user_data"));
 	var newDrinkName;
@@ -86,7 +90,6 @@ const Home = () => {
 				<div className="bottom">
 					<CaffeineGraph />
 				</div>
-				<div className="bottom"></div>
 			</div>
 		</div>
 	);
