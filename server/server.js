@@ -135,3 +135,29 @@ app.post("/api/getWeekRecords", async (req, res, next) => {
 	var ret = { caffeineRecords: caffeineRecords };
 	res.status(200).json(ret);
 });
+
+app.post("/api/getDailyIntake", async (req, res, next) => {
+	var error = "";
+	const { userId } = req.body;
+	const db = client.db("CaffeineDB");
+
+	const results = await db.collection("Records").find({ userId: userId }).toArray();
+
+	// results.sort(function (a, b) {
+	// 	return new Date(a.date) - new Date(b.date);
+	// });
+	var dailyIntake = 0;
+	console.log(results);
+	if (results.length > 0) {
+		var today = new Date().getDate();
+		for (let i = 0; i < results.length; i++) {
+			console.log(results[i].date.getDate());
+			if (results[i].date.getDate() == today) {
+				dailyIntake += parseInt(results[i].caffeineIntake);
+			}
+		}
+	}
+
+	var ret = { dailyIntake: dailyIntake };
+	res.status(200).json(ret);
+});
