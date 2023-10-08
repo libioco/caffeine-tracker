@@ -1,9 +1,7 @@
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import statsmodels.api as sm
-
 
 df_demo = pd.read_csv("res/DEMO_J.csv")
 df_dr1 = pd.read_csv("res/DR1TOT_J.csv")
@@ -51,9 +49,11 @@ y = df['DR1TCAFF'].values
 model_age = LinearRegression()
 model_age.fit(x, y)
 
+
 # Get Mean Caffeine Intake by Age
 def GetCaffeineIntakeByAge(age):
     return model_age.predict([[age]])
+
 
 # Linear Regression for Weight
 
@@ -63,9 +63,11 @@ y = df['DR1TCAFF'].values
 model_weight = LinearRegression()
 model_weight.fit(x, y)
 
+
 # Get Mean Caffeine Intake by Age
 def GetCaffeineIntakeByWeight(weight):
     return model_weight.predict([[weight]])
+
 
 # Combined linear regression
 
@@ -75,7 +77,25 @@ y = df['DR1TCAFF']
 
 model_combined = sm.OLS(y, X).fit()
 
+
 def GetEstimatedCaffeineIntake(age, weight):
-    new_data = sm.add_constant(pd.DataFrame({'const': 1, 'Age': [age], 'Weight': [weight]}))
+    new_data = sm.add_constant(
+        pd.DataFrame({
+            'const': 1,
+            'Age': [age],
+            'Weight': [weight]
+        }))
     caffeine_intake_prediction = model_combined.predict(new_data)
     return caffeine_intake_prediction[0]
+
+
+params = model_combined.params
+
+# Extract coefficients
+intercept = params['const']
+coefficient_age = params['RIDAGEYR']
+coefficient_weight = params['WHD020']
+
+print(f'Intercept: {intercept}')
+print(f'Coefficient for Age: {coefficient_age}')
+print(f'Coefficient for Weight: {coefficient_weight}')

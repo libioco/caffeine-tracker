@@ -23,13 +23,6 @@ To analyze the relationships between caffeine intake, age, and weight, we perfor
    - Mean and Standard Deviation of Age
    - Mean and Standard Deviation of Weight
 
-4. **Visualization**: We create visualizations, such as bell curve plots, to represent the distributions and trends of these variables.
-
-## Integration Functions
-
-To integrate the data analysis results into the main server, there are integration functions in the `main.py` file. These functions allow the server to access the analyzed data conveniently.
-
 ## Usage
 
-- Use the raw data files (`caffeine_data.csv`, `age_data.csv`) for further analysis or exploration as needed.
-- If you are working on the main server integration, refer to the integration functions provided in the `main.py` file. (Might have a more detailed docs late)
+Used to find the parameters in which to calculate the final estimated average caffeine intake for a users Age and Weight.
