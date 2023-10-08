@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import CaffeineGraph from "../components/CaffeineGraph";
-
 import "./css/home.css";
 
 const Home = () => {
@@ -55,9 +54,11 @@ const Home = () => {
 						Add Record
 					</button>
 				</div>
+
 				<div className="bottom">
 					<CaffeineGraph />
 				</div>
+				<div className="bottom"></div>
 			</div>
 		</div>
 	);
