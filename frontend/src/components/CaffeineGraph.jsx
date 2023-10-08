@@ -4,6 +4,12 @@ import Chart from 'chart.js/auto';
 const MyChart = () => {
   const chartRef = useRef(null);
 
+  window.addEventListener('loadData', (xValues, yValues, average) => {
+    chartRef.yValues = yValues;
+    chartRef.xValues = xValues;
+    chartRef.average = average
+  })
+
   useEffect(() => {
     const xValues = [1, 2, 3, 4, 5];
     const yValues = [100, 140, 200, 250, 220];
