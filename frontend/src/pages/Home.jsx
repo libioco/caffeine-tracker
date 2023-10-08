@@ -49,7 +49,7 @@ const Home = () => {
 					<h2>What did you drink today?</h2>
 					<input id="newDrinkName" type="text" ref={(c) => (newDrinkName = c)} />
 					<h2>How much caffeine does it have?</h2>
-					<input id="newCaffeine" type="number" ref={(c) => (newCaffeine = c)} />
+					<input id="newCaffeine" type="text" ref={(c) => (newCaffeine = c)} />
 					<button type="submit" onClick={doAddRecord}>
 						Add Record
 					</button>
