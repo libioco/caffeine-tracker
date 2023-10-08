@@ -58,7 +58,6 @@ const Home = () => {
 				<div className="bottom">
 					<CaffeineGraph />
 				</div>
-				<div className="bottom"></div>
 			</div>
 		</div>
 	);
