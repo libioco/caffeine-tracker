@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./css/register.css"
 
 const Register = () => {
 	var registerFirst;
@@ -99,7 +100,7 @@ const Register = () => {
 						Continue
 					</button>
 					<span id="loginResult">{message}</span>
-
+					<br></br>
 					<span className="register-span">
 						Have an account? <Link to="/login">Login here</Link>
 					</span>
