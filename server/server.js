@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 app.listen(3000); // start Node + Express server on port 3000
 
 app.post("/api/login", async (req, res, next) => {
-	// incoming: login, password
+	// incoming: username, password
 	// outgoing: id, firstName, lastName, error
 	var error = "";
 	const { username, password } = req.body;
@@ -36,6 +36,7 @@ app.post("/api/login", async (req, res, next) => {
 		.collection("Users")
 		.find({ Username: username, Password: password })
 		.toArray();
+
 	var id = -1;
 	var fn = "";
 	var ln = "";
