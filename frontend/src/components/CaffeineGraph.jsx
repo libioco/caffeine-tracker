@@ -35,7 +35,7 @@ const MyChart = () => {
           },
           {
             fill: 'origin', // Fill to the starting point
-            backgroundColor: 'rgba(255, 0, 0, 0.3)', // Red fill
+            backgroundColor: 'rgba(255, 0, 0, 0.3)',
             borderColor: 'rgba(139, 69, 19)',
             data: average,
             borderDash: [5, 5],

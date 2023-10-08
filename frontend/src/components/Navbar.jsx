@@ -14,10 +14,15 @@ const Navbar = () => {
 		<div className="navbar">
 			<div className="logo">
 				<img
-					src="https://cdn.discordapp.com/attachments/1156773996558307430/1160291374613155981/company-removebg-preview.png?ex=6534208c&is=6521ab8c&hm=b4be42b17788640387813b739fb745d03e13fe89bd2077cd4cf51848634b6c37&"
+					className="logo1"
+					src="https://cdn.discordapp.com/attachments/1156773996558307430/1160443955285078117/logo-removebg-preview.png?ex=6534aea6&is=652239a6&hm=0f97ae6ee19b20838b52a1aa319017397e657b99cfb90d9f4645633a6bb81c4a&"
 					alt="mojomonitor logo"
 				/>
-				<h1>MojoMonitor</h1>
+				<img
+					className="logo2"
+					src="https://media.discordapp.net/attachments/1156773996558307430/1160446060855046234/logo_words-removebg-preview.png?ex=6534b09c&is=65223b9c&hm=df3f9c86e916eee5ea1220bc6dcfadfc7d43e2d46d21c9f4cbbbbf87f7aba24c&="
+					alt="mojomonitor word"
+				/>
 			</div>
 			<div className="links">
 				<Link to="/">
