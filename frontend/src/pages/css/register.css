@@ -1,0 +1,95 @@
+.register * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .register body {
+    background: #63432C;
+    overflow: hidden;
+  }
+  
+  .register {
+    max-width: 500px;
+    padding: 0 10px;
+    margin: 250px;
+  }
+  
+  .register .container {
+    width: 100%;
+    background: #fff;
+    border-radius: 1px;
+    box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register .container h2 {
+    height: 80px;
+    background: #63432C;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .register .form {
+    padding: 30px 25px 25px 25px;
+    text-align: center; /* Center the text within the form */
+  }
+  
+  .register .form input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #63432C;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+  }
+  
+  .register .form input:focus {
+    border-color: #63432C;
+    box-shadow: inset 0px 0px 2px 2px rgba(26, 188, 156, 0.25);
+  }
+  
+  .register .form input::placeholder {
+    color: #999;
+  }
+  
+  .register .form button {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    background: #63432C;
+    border: 1px solid #63432C;
+    cursor: pointer;
+    width: 30%; /* Make the button take 100% width */
+    margin-bottom: 15px; /* Add margin to separate from the text underneath */
+  }
+  
+  .register .form button:hover {
+    background: #63432C;
+  }
+  
+  .register .register-span {
+    color: #63432C;
+    text-align: justify;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 17px;
+  }
+  
+  .register .register-span a {
+    color: #63432C;
+    text-decoration: none;
+  }
+  
+  .register .register-span a:hover {
+    text-decoration: underline;
+  }
+  
